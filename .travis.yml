@@ -11,7 +11,7 @@ env:
 
 script:
   - mkdir packages
-  - docker run -v $(pwd):/home/builder/package -v $(pwd)/packages:/packages -e RSA_PUBLIC_KEY="$RSA_PUBLIC_KEY" -e RSA_PRIVATE_KEY="$RSA_PRIVATE_KEY" msales/alpine-build:$VERSION
+  - docker run -v $(pwd):/home/builder/package -v $(pwd)/packages:/packages -e RSA_PUBLIC_KEY="$RSA_PUBLIC_KEY" -e RSA_PRIVATE_KEY="$RSA_PRIVATE_KEY" -e RSA_PRIVATE_KEY_NAME=msales.rsa msales/alpine-build:$VERSION
 
 before_deploy:
   - sudo chown -R travis:travis ./
