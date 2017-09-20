@@ -14,7 +14,7 @@ script:
   - docker run -v $(pwd):/home/builder/package -v $(pwd)/packages:/packages -e RSA_PUBLIC_KEY="$RSA_PUBLIC_KEY" -e RSA_PRIVATE_KEY="$RSA_PRIVATE_KEY" msales/alpine-build:$VERSION
 
 before_deploy:
-  - sudo chown -R travis:travis /
+  - sudo chown -R travis:travis ./
 
 deploy:
   provider: s3
